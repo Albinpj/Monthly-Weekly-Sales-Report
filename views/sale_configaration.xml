@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_form_inherit" model="ir.ui.view">
+            <field name="name">Sale Report</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//div[@id='pricing_setting_container']" position="after">
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box"
+                             title="If The Discount Limit Exceeded Its Approved By The Manager">
+                            <div class="o_setting_left_pane">
+                                <field name="sale_reports"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="sale_reports"/>
+                                <div class="text-muted">
+                                    Take Sale Report
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('sale_reports', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label for="customer_id" class="col-lg-4 o_light_label"/>
+                                        <field name="customer_id" widget="many2many_tags"/>
+                                    </div>
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('sale_reports', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label for="sale_team" class="col-lg-4 o_light_label"/>
+                                        <field name="sale_team"/>
+                                    </div>
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('sale_reports', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label for="report_type" class="col-lg-4 o_light_label"/>
+                                        <field name="report_type"/>
+                                    </div>
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('sale_reports', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label for="from_date" class="col-lg-4 o_light_label"/>
+                                        <field name="from_date"/>
+                                    </div>
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('sale_reports', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label for="to_date" class="col-lg-4 o_light_label"/>
+                                        <field name="to_date"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
